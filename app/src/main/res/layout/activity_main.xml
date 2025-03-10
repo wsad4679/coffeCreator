@@ -46,10 +46,11 @@
                         android:textStyle="bold"
                         />
                     <ImageView
-                        android:id="@+id/kawa_imageview"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/coffe_imageview"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
 
                         />
 
@@ -118,7 +119,7 @@
 
 
                 <Button
-                    android:id="@+id/zamow_button"
+                    android:id="@+id/order_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"

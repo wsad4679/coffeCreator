@@ -1,6 +1,12 @@
 package com.example.coffecreator
 
 import android.os.Bundle
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Switch
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -15,6 +21,32 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+
+        val coffeImageViev : ImageView = findViewById(R.id.coffe_imageview)
+
+        val orderButton : Button = findViewById(R.id.order_button)
+
+        val coffeImages = listOf(
+            R.drawable.latte,
+            R.drawable.espresso,
+            R.drawable.capuccino
+        )
+        coffeImageViev.setImageResource(coffeImages[1])
+
+        val coffeRadioGroup : RadioGroup = findViewById(R.id.coffe_radiogroup)
+
+        coffeRadioGroup.setOnCheckedChangeListener{_, checkedId ->
+
+            val coffeRadioButton : RadioButton = findViewById(checkedId)
+            coffeImageViev.setImageResource(when(coffeRadioButton.text){
+                "Espresso" -> coffeImages[1]
+                "Caffe Latte" -> coffeImages[0]
+                "Americano" -> coffeImages[2]
+                else -> coffeImages[1]
+            })
+
         }
     }
 }
