@@ -89,7 +89,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_margin="10dp"
-                                        android:text="Americano"
+                                        android:text="Capuccino"
                                         />
                         </RadioGroup>
 
@@ -102,13 +102,14 @@
                             android:layout_marginEnd="50dp"
                             android:layout_marginBottom="20dp"
                             android:max="5"
+                            android:min="1"
                             android:progress="1"/>
 
                         <TextView
                             android:id="@+id/coffe_number_textview"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Ilość kaw: "
+                            android:text="Ilość kaw: 1"
                             android:layout_margin="10dp"
                             android:layout_gravity="center"
                             android:textSize="20sp"

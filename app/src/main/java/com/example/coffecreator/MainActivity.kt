@@ -1,7 +1,9 @@
 package com.example.coffecreator
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -28,12 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         val coffeImageViev : ImageView = findViewById(R.id.coffe_imageview)
 
-        val orderButton : Button = findViewById(R.id.order_button)
-
-        val coffeNumberSeekBar : SeekBar = findViewById(R.id.ilosckawy_seekbar)
-        var coffeNumber : Int
-        val coffenumberTextView : TextView = findViewById(R.id.coffe_number_textview)
-
         val coffeImages = listOf(
             R.drawable.latte,
             R.drawable.espresso,
@@ -42,18 +38,24 @@ class MainActivity : AppCompatActivity() {
         coffeImageViev.setImageResource(coffeImages[1])
 
         val coffeRadioGroup : RadioGroup = findViewById(R.id.coffe_radiogroup)
-
+        var coffe = "Espresso"
         coffeRadioGroup.setOnCheckedChangeListener{_, checkedId ->
 
             val coffeRadioButton : RadioButton = findViewById(checkedId)
+            coffe = "${coffeRadioButton.text}"
             coffeImageViev.setImageResource(when(coffeRadioButton.text){
                 "Espresso" -> coffeImages[1]
                 "Caffe Latte" -> coffeImages[0]
-                "Americano" -> coffeImages[2]
+                "Capuccino" -> coffeImages[2]
                 else -> coffeImages[1]
             })
 
         }
+
+        val coffeNumberSeekBar : SeekBar = findViewById(R.id.ilosckawy_seekbar)
+        var coffeNumber : Int = 1
+        val coffenumberTextView : TextView = findViewById(R.id.coffe_number_textview)
+
 
         coffeNumberSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
 
@@ -71,5 +73,46 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+
+
+        val milkCheckBox : CheckBox = findViewById(R.id.mleko_checkbox)
+        var milk = "Bez dodatkowego mleka"
+        milkCheckBox.setOnCheckedChangeListener { _, isChecked ->
+
+            if(isChecked)
+            {
+                milk = "Dodatkowe mleko"
+            }
+            else
+            {
+                milk = "Bez dodatkowego mleka"
+            }
+
+        }
+
+        val sugarCheckBox : CheckBox = findViewById(R.id.cukier_checkbox)
+        var sugar = "Bez dodatkowego cukru"
+        sugarCheckBox.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked)
+            {
+                 sugar = "Dodatkowy cukier"
+            }
+            else
+            {
+                 sugar = "Bez dodatkowego cukru"
+            }
+        }
+
+        val orderButton : Button = findViewById(R.id.order_button)
+
+        orderButton.setOnClickListener {
+            Toast.makeText(this, "Twoje zamówienie to: ${coffeNumber} $coffe \n $milk \n $sugar", Toast.LENGTH_SHORT).show()
+
+            Log.i("myInfo", "Twoje zamówienie to: ${coffeNumber} $coffe \n $milk \n $sugar")
+        }
+
+
+
+
     }
 }
