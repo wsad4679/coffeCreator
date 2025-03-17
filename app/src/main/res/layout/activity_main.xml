@@ -17,7 +17,11 @@
         android:layout_margin="10dp"
         android:textSize="20sp"
         android:layout_gravity="center"
+        android:textColor="@color/black"
         />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -26,8 +30,9 @@
         app:cardCornerRadius="20dp"
         android:layout_margin="10dp"
         android:layout_gravity="center"
-
         >
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -99,6 +104,16 @@
                             android:max="5"
                             android:progress="1"/>
 
+                        <TextView
+                            android:id="@+id/coffe_number_textview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ilość kaw: "
+                            android:layout_margin="10dp"
+                            android:layout_gravity="center"
+                            android:textSize="20sp"
+                            />
+
                         <CheckBox
                             android:id="@+id/mleko_checkbox"
                             android:layout_width="wrap_content"
@@ -118,18 +133,20 @@
                 </LinearLayout>
 
 
-                <Button
-                    android:id="@+id/order_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:text="Złóż zamówienie"
-                    android:backgroundTint="#735412"
-                    />
+
+        <Button
+            android:id="@+id/order_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="Złóż zamówienie"
+            android:backgroundTint="#735412"
+
+            />
 
 
     </androidx.cardview.widget.CardView>
-
+</ScrollView>
 
 
 
